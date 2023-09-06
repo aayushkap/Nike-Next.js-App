@@ -17,6 +17,7 @@ const ReviewCard = ({ imgURL, customerName, rating, feedback }) => {
           width={24}
           height={24}
           className="object-contain m-0"
+          alt="Review"
         />
         <p className="font-montserrat text-lg mt-1">({rating})</p>
       </div>

@@ -1,5 +1,5 @@
 import { shoe8 } from "@/assets/images";
-import Button from "../shared/Button.jsx";
+import Button from "../shared/Button";
 
 import Image from "next/image";
 

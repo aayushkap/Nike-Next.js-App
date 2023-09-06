@@ -1,5 +1,5 @@
 import { products } from "../constants/index.js";
-import PopularProductCard from "../sectionsHome/cards/PopularProductCard.jsx";
+import PopularProductCard from "../sectionsHome/cards/PopularProductCard";
 
 const PopularProducts = () => {
   return (

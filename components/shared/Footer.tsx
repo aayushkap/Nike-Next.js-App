@@ -10,7 +10,12 @@ const Footer = () => {
       <div className="flex justify-between items-start flex-wrap flex-col">
         <div className="flex flex-col items-start">
           <a href="#">
-            <Image src={footerLogo} width={150} height={46} />
+            <Image
+              src={footerLogo}
+              width={150}
+              height={46}
+              alt={"Footer Logo"}
+            />
           </a>
           <p className="mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm font-bold cursor-pointer">
             FIND A STORE
@@ -31,7 +36,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-1 justify-between lg:gap-10 gap-20 flex-wrap mt-10 w-full">
           {footerLinks.map((link) => (
-            <div key={link}>
+            <div>
               <h4 className="text-white font-montserrat text-2xl leading-normal font-medium ">
                 {link.title}
               </h4>

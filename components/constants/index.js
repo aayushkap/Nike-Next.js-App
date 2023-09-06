@@ -105,7 +105,7 @@ export const reviews = [
   },
   {
     imgURL: customer2,
-    customerName: "Lota Mongeskar",
+    customerName: "Allison Byers",
     rating: 4.6,
     feedback:
       "These sneakers have become my daily companions. Whether I'm running errands or going for a quick jog, they're incredibly comfortable and hold up well to regular use.",

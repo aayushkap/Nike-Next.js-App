@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 import { shoes, statistics } from "../constants/index.js";
-import Button from "../shared/Button.jsx";
-import ShoeCard from "../sectionsHome/cards/ShoeCard.jsx";
+import Button from "../shared/Button";
+import ShoeCard from "../sectionsHome/cards/ShoeCard";
 import { bigShoe1 } from "@/assets/images";
 import { arrowRight } from "@/assets/icons";
 
@@ -16,7 +16,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="w-full flex xl:flex-row flex-col justify-center min-h-screen max-container"
+      className="w-full flex xl:flex-row flex-col justify-center min-h-screen max-container "
     >
       <div className="relative xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x pt-28">
         <p className="text-xl font-montserrat text-coral-red">
@@ -38,7 +38,7 @@ const Hero = () => {
 
         <Button label="Shop now" iconURL={arrowRight} />
 
-        <div className="flex justify-start items-start w-full mt-20 gap-12 max-sm:hidden">
+        <div className="flex justify-start items-start w-full mt-[26px] gap-12 max-sm:hidden">
           {statistics.map((stat, index) => (
             <div key={index}>
               <p className="text-4xl font-palanquin font-bold">{stat.value}</p>

@@ -1,4 +1,4 @@
-import Button from "../shared/Button.jsx";
+import Button from "../shared/Button";
 
 const Subscribe = () => {
   return (

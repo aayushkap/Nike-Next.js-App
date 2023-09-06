@@ -1,5 +1,5 @@
 import { services } from "../constants/index.js";
-import ServiceCard from "../sectionsHome/cards/ServiceCard.jsx";
+import ServiceCard from "../sectionsHome/cards/ServiceCard";
 
 const Services = () => {
   return (
