@@ -6,15 +6,27 @@ import { navLinks } from "../constants/index.js";
 
 import Image from "next/image";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link.js";
 
 const Nav = () => {
   const [sideBar, setSideBar] = useState(false);
 
-  window.addEventListener("resize", handleResize); //Close sidebar on resize.
-  function handleResize() {
-    setSideBar(false);
-  }
+  const handleResize = () => {
+    if (window.innerWidth > 1024) {
+      setSideBar(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add a window resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <header className="padding-x py-8 absolute z-20 w-full">
@@ -27,12 +39,12 @@ const Nav = () => {
           <ul className=" flex-1   flex justify-center items-center gap-32 max-lg:hidden ">
             {navLinks.map((item) => (
               <li key={item.label}>
-                <a
-                  href={item.href}
+                <Link
+                  href={item.isRoute ? `/${item.href}` : `#${item.href}`}
                   className="font-montserrat leading-normal text-lg text-slate-gray hover:text-coral-red"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -40,17 +52,20 @@ const Nav = () => {
 
         {sideBar && (
           <section
-            className={"rightsidebar lg:hidden " + (sideBar ? "w-fit " : "w-0")}
+            className={
+              "rightsidebar rounded-bl-3xl bg-coral-red bg-opacity-25 lg:hidden" +
+              (sideBar ? "w-fit " : "w-0")
+            }
           >
-            <ul className="flex flex-col justify-center items-center gap-40 max-md:gap-10 py-28">
+            <ul className="flex flex-col justify-center items-center gap-24 py-20 ">
               {navLinks.map((item) => (
                 <li
                   key={item.label}
-                  className="text-right w-full px-10 max-sm:px-2"
+                  className="text-right w-full px-10 max-sm:px-4"
                 >
                   <a
                     href={item.href}
-                    className="font-montserrat leading-normal text-lg text-slate-gray hover:text-coral-red"
+                    className="font-montserrat leading-normal text-lg text-black hover:text-slate-gray"
                   >
                     {item.label}
                   </a>
@@ -66,7 +81,10 @@ const Nav = () => {
             alt="Hamburger"
             height={25}
             width={25}
-            className="lg:hidden cursor-pointer"
+            className={
+              "lg:hidden cursor-pointer transition-all" +
+              (sideBar ? " rotate-90" : "")
+            }
             onClick={() => setSideBar(!sideBar)}
           />
         </div>

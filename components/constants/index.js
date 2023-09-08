@@ -20,12 +20,24 @@ import {
   thumbnailShoe2,
   thumbnailShoe3,
 } from "@/assets/images";
+import {
+  ProductShoe1,
+  ProductShoe1s,
+  ProductShoe2,
+  ProductShoe2s,
+  ProductShoe3,
+  ProductShoe3s,
+  ProductShoe4,
+  ProductShoe4s,
+  ProductShoe5,
+  ProductShoe5s,
+} from "@/assets/images/products";
 
 export const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about-us", label: "About Us" },
-  { href: "#products", label: "Products" },
-  { href: "#contact-us", label: "Contact Us" },
+  { href: "", label: "Home", isRoute: true },
+  { href: "about-us", label: "About Us", isRoute: false },
+  { href: "products", label: "Products", isRoute: true },
+  { href: "contact-us", label: "Contact Us", isRoute: false },
 ];
 
 export const shoes = [
@@ -147,4 +159,62 @@ export const socialMedia = [
   { src: facebook, alt: "facebook logo" },
   { src: twitter, alt: "twitter logo" },
   { src: instagram, alt: "instagram logo" },
+];
+
+export const shoeProducts = [
+  {
+    imgURL1: ProductShoe1,
+    imgURL2: ProductShoe1s,
+    name: "Nike SB Zoom Blazer Mid",
+    colour: "Black",
+    gender: "Unisex",
+    type: "Sneakers",
+    price: "$ 110.00",
+    size: ["7", "8", "9", "10", "11", "12"],
+    special: "New",
+  },
+  {
+    imgURL1: ProductShoe2,
+    imgURL2: ProductShoe2s,
+    name: "Nike Calm",
+    colour: "Black",
+    gender: "Men",
+    type: "Slides",
+    price: "$ 99.00",
+    size: ["7", "8", "9", "10", "11", "12"],
+    special: "",
+  },
+  {
+    imgURL1: ProductShoe3,
+    imgURL2: ProductShoe3s,
+    name: "Air Jordan I High G",
+    colour: "Green",
+    gender: "Men",
+    type: "Sneakers",
+    price: "$ 140.00",
+    size: ["7", "8", "9", "10", "11", "12"],
+    special: "",
+  },
+  {
+    imgURL1: ProductShoe4,
+    imgURL2: ProductShoe4s,
+    name: "Nike Pegasus 39",
+    colour: "Black",
+    gender: "Women",
+    type: "Athletic",
+    price: "$ 120.00",
+    size: ["7", "8", "9", "10", "11", "12"],
+    special: "Best Seller",
+  },
+  {
+    imgURL1: ProductShoe5,
+    imgURL2: ProductShoe5s,
+    name: "Nike React Vision",
+    colour: "White",
+    gender: "Unisex",
+    type: "Sneakers",
+    price: "$ 125.00",
+    size: ["7", "8", "9", "10", "11", "12"],
+    special: "New",
+  },
 ];
