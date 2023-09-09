@@ -36,7 +36,7 @@ const Hero = () => {
           transcend trends and empower individuals worldwide.
         </p>
 
-        <Button label="Shop now" iconURL={arrowRight} />
+        <Button label="Shop now" iconURL={arrowRight} link="/products" />
 
         <div className="flex justify-start items-start w-full mt-[26px] gap-12 max-sm:hidden">
           {statistics.map((stat, index) => (
