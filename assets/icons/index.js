@@ -11,6 +11,7 @@ import star from "./star.svg";
 import truckFast from "./truck-fast.svg";
 import twitter from "./twitter.svg";
 import filter from "./filter.jpg";
+import check from "./check.png";
 
 export {
   filter,
@@ -26,4 +27,5 @@ export {
   star,
   truckFast,
   twitter,
+  check,
 };

@@ -17,7 +17,7 @@ const ShoePurchaseCard = ({
           height={300}
           width={300}
           alt={name}
-          className=" shadow-md"
+          className=" shadow-md rounded-md"
         />
 
         <div className="w-full max-w-[300px] font-montserrat flex flex-col py-2">
