@@ -43,7 +43,7 @@ export default function Home() {
     <main className="relative">
       <div className=" w-full relative max-container pt-28 ">
         <div className="bg-coral-red bg-opacity-25 leading-10 rounded-lg text-center font-palanquin text-md w-full">
-          Free Shipping for orders over $150.
+          Free Shipping for orders over $99.
         </div>
       </div>
       <section className="flex justify-center items-center py-5 lg:hidden">
@@ -71,7 +71,7 @@ export default function Home() {
             <SizeFilter sizes={sizes} setSizes={setSizes} />
           </div>
         )}
-        <div className="relative lg:w-4/5 w-full px-10 sm:p-20">
+        <div className="relative lg:w-4/5 w-full py-16 px-10 sm:px-20 ">
           <ShoePurchaseArea
             max={max}
             gender={gender}

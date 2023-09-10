@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const ShoePurchaseCard = ({
@@ -8,9 +11,17 @@ const ShoePurchaseCard = ({
   type,
   gender,
   special,
+  id,
 }: any) => {
+  const router = useRouter();
+  const handleClick = (name: any) => {
+    router.push(`/products/${name}`);
+  };
   return (
-    <section className="px-0 h-fit cursor-pointer">
+    <section
+      onClick={() => handleClick(name)}
+      className="px-0 h-fit cursor-pointer"
+    >
       <div className="flex flex-col max-md:items-center">
         <Image
           src={imgURL1}

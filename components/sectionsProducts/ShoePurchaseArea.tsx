@@ -11,12 +11,11 @@ const ShoePurchaseArea = ({
   itemCount,
   setItemCount,
 }: any) => {
-  let count = 0;
-  setItemCount(0);
+  var count = 0;
 
   return (
     <>
-      <div className=" grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-14">
+      <div className=" grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-14">
         {shoeProducts.map((product) => {
           if (types.includes(product.type) || types.length == 0) {
             if (product.gender == gender || gender == "All") {

@@ -177,6 +177,7 @@ export const socialMedia = [
 
 export const shoeProducts = [
   {
+    id: 1,
     imgURL1: ProductShoe1,
     imgURL2: ProductShoe1s,
     name: "Nike SB Zoom Blazer Mid",
@@ -186,8 +187,11 @@ export const shoeProducts = [
     price: "$ 120.00",
     size: [7, 7.5, 8, 8.5, 9, 12],
     special: "New",
+    description:
+      "Experience style and comfort with the Nike SB Zoom Blazer Mid. These yellow sneakers are perfect for both men and women, featuring a fresh design and available in various sizes. Don't miss out on the latest addition to our collection.",
   },
   {
+    id: 2,
     imgURL1: ProductShoe2,
     imgURL2: ProductShoe2s,
     name: "Nike Calm",
@@ -195,10 +199,13 @@ export const shoeProducts = [
     gender: "Men",
     type: "Slides",
     price: "$ 99.00",
-    size: [7, 7.5, 8, 8, 8, 8.5, 9],
+    size: [7, 7.5, 8, 8.5, 9],
     special: "",
+    description:
+      "Slide into relaxation with Nike Calm. These black slides for men offer ultimate comfort and style. Whether you're heading to the pool or just lounging around, these slides are a perfect choice.",
   },
   {
+    id: 3,
     imgURL1: ProductShoe3,
     imgURL2: ProductShoe3s,
     name: "Air Jordan I High G",
@@ -208,8 +215,11 @@ export const shoeProducts = [
     price: "$ 140.00",
     size: [7, 9, 11, 12],
     special: "",
+    description:
+      "Elevate your sneaker game with the Air Jordan I High G. These green sneakers for men are a timeless classic. With multiple size options available, step into style and make a statement.",
   },
   {
+    id: 4,
     imgURL1: ProductShoe4,
     imgURL2: ProductShoe4s,
     name: "Nike Pegasus 39",
@@ -219,8 +229,11 @@ export const shoeProducts = [
     price: "$ 120.00",
     size: [6, 7, 7.5, 8, 8.5, 12],
     special: "Best Seller",
+    description:
+      "Discover the best-selling Nike Pegasus 39 for women. These black athletic shoes provide unbeatable comfort and style. Available in a range of sizes, they are a must-have for active women.",
   },
   {
+    id: 5,
     imgURL1: ProductShoe5,
     imgURL2: ProductShoe5s,
     name: "Nike React Vision",
@@ -230,8 +243,11 @@ export const shoeProducts = [
     price: "$ 125.00",
     size: [7, 8, 9, 10, 11, 12],
     special: "New",
+    description:
+      "Step into the future with Nike React Vision. These white sneakers are a perfect blend of style and comfort for both men and women. Get a fresh look with these new arrivals.",
   },
   {
+    id: 6,
     imgURL1: ProductShoe6,
     imgURL2: ProductShoe6s,
     name: "LeBron XX Premium",
@@ -239,10 +255,13 @@ export const shoeProducts = [
     gender: "Men",
     type: "Basketball",
     price: "$ 256.00",
-    size: [7, 7.5, 8, 8.5, 8.5, 12],
+    size: [7, 7.5, 8, 8.5, 12],
     special: "",
+    description:
+      "Dominate the court with LeBron XX Premium basketball shoes. These red kicks are engineered for peak performance and style. Elevate your game with the LeBron collection.",
   },
   {
+    id: 7,
     imgURL1: ProductShoe7,
     imgURL2: ProductShoe7s,
     name: "Jordan Why Not .6",
@@ -252,8 +271,11 @@ export const shoeProducts = [
     price: "$ 140.00",
     size: [9, 10, 11.5, 12, 13],
     special: "New",
+    description:
+      "Get ready to rock the court with the Jordan Why Not .6. These multi-color basketball shoes are a versatile choice for both men and women. Make a statement on and off the court.",
   },
   {
+    id: 8,
     imgURL1: ProductShoe8,
     imgURL2: ProductShoe8s,
     name: "Nike Air Max Terrascape Plus",
@@ -263,8 +285,11 @@ export const shoeProducts = [
     price: "$ 220.00",
     size: [6, 7.5, 8, 8.5],
     special: "",
+    description:
+      "Experience the ultimate in style and comfort with Nike Air Max Terrascape Plus. These multi-color sneakers are designed for women who demand the best. Elevate your look.",
   },
   {
+    id: 9,
     imgURL1: ProductShoe9,
     imgURL2: ProductShoe9s,
     name: "Tatum 1 'Denim'",
@@ -274,8 +299,11 @@ export const shoeProducts = [
     price: "$ 245.00",
     size: [10, 11.5, 12, 13],
     special: "",
+    description:
+      "Unleash your inner baller with Tatum 1 Denim basketball shoes. These blue kicks for men are a symbol of style and performance. Make your mark on the court.",
   },
   {
+    id: 10,
     imgURL1: ProductShoe10,
     imgURL2: ProductShoe10s,
     name: "Nike Zoom Fly 5 Premium",
@@ -283,10 +311,13 @@ export const shoeProducts = [
     gender: "Women",
     type: "Athletic",
     price: "$ 180.00",
-    size: [7, 7.5, 7.5, 8, 8.5],
+    size: [7, 7.5, 8, 8.5],
     special: "",
+    description:
+      "Experience top-tier athletic performance with the Nike Zoom Fly 5 Premium. These pink athletic shoes for women are designed for speed and endurance. Step up your game.",
   },
   {
+    id: 11,
     imgURL1: ProductShoe11,
     imgURL2: ProductShoe11s,
     name: "Nike Air Huarache",
@@ -296,8 +327,11 @@ export const shoeProducts = [
     price: "$ 89.00",
     size: [6, 6.5, 7, 7.5],
     special: "New",
+    description:
+      "Step into style and comfort with the Nike Air Huarache. These peach sneakers for women are a fresh addition to your collection. Don't miss out on the latest trend.",
   },
   {
+    id: 12,
     imgURL1: ProductShoe12,
     imgURL2: ProductShoe12s,
     name: "Nike Tiempo Legend 9 Academy TF",
@@ -307,5 +341,7 @@ export const shoeProducts = [
     price: "$ 109.00",
     size: [7, 8.5, 10, 11],
     special: "",
+    description:
+      "Dominate the pitch with Nike Tiempo Legend 9 Academy TF. These black football shoes for men are engineered for precision and control. Elevate your game.",
   },
 ];
