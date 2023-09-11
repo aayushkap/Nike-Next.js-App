@@ -12,6 +12,7 @@ import truckFast from "./truck-fast.svg";
 import twitter from "./twitter.svg";
 import filter from "./filter.jpg";
 import check from "./check.png";
+import cart from "./cart.svg";
 
 export {
   filter,
@@ -28,4 +29,5 @@ export {
   truckFast,
   twitter,
   check,
+  cart,
 };

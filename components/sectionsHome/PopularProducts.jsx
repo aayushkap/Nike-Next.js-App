@@ -1,5 +1,7 @@
-import { products } from "../constants/index.js";
+import { shoeProducts } from "../constants/index.js";
 import PopularProductCard from "../sectionsHome/cards/PopularProductCard";
+
+const popular = [1, 4, 7, 11];
 
 const PopularProducts = () => {
   return (
@@ -14,9 +16,11 @@ const PopularProducts = () => {
         </p>
       </div>
       <div className="mt-16 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 xl:gap-28 max-xl:gap-16">
-        {products.map((product) => (
-          <PopularProductCard key={product.name} {...product} />
-        ))}
+        {shoeProducts.map((product) => {
+          if (popular.includes(product.id)) {
+            return <PopularProductCard key={product.name} {...product} />;
+          }
+        })}
       </div>
     </section>
   );

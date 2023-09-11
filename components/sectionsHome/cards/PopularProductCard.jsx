@@ -1,18 +1,29 @@
+"use client";
+
 import { star } from "@/assets/icons";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-const PopularProductCard = ({ imgURL, name, price, rating }) => {
+const PopularProductCard = ({ imgURL1, name, price, rating }) => {
+  const router = useRouter();
+  const handleClick = (name) => {
+    router.push(`/products/${name}`);
+  };
+
   return (
-    <div className="flex flex-1 flex-col w-full max-sm:w-full cursor-pointer">
-      <Image src={imgURL} alt={name} className="w-[280px] h-[280px]" />
+    <div
+      className="flex flex-1 flex-col w-full max-sm:w-full cursor-pointer"
+      onClick={() => handleClick(name)}
+    >
+      <Image
+        src={imgURL1}
+        alt={name}
+        className="bg-slate-100 rounded-xl"
+        width={280}
+        height={280}
+      />
       <div className="mt-4 flex justify-start gap-2.5">
-        <Image
-          src={star}
-          alt="Rating"
-          width={24}
-          height={24}
-          className="hover:animate-pulse"
-        />
+        <Image src={star} alt="Rating" width={24} height={24} />
         <p className="font-montserrat text-xl leading-normal text-slate-gray">
           ({rating})
         </p>

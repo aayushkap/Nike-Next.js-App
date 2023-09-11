@@ -178,6 +178,7 @@ export const socialMedia = [
 export const shoeProducts = [
   {
     id: 1,
+    rating: 4.7,
     imgURL1: ProductShoe1,
     imgURL2: ProductShoe1s,
     name: "Nike SB Zoom Blazer Mid",
@@ -192,6 +193,7 @@ export const shoeProducts = [
   },
   {
     id: 2,
+    rating: 4.6,
     imgURL1: ProductShoe2,
     imgURL2: ProductShoe2s,
     name: "Nike Calm",
@@ -206,6 +208,7 @@ export const shoeProducts = [
   },
   {
     id: 3,
+    rating: 4.6,
     imgURL1: ProductShoe3,
     imgURL2: ProductShoe3s,
     name: "Air Jordan I High G",
@@ -220,6 +223,7 @@ export const shoeProducts = [
   },
   {
     id: 4,
+    rating: 4.7,
     imgURL1: ProductShoe4,
     imgURL2: ProductShoe4s,
     name: "Nike Pegasus 39",
@@ -234,6 +238,7 @@ export const shoeProducts = [
   },
   {
     id: 5,
+    rating: 4.6,
     imgURL1: ProductShoe5,
     imgURL2: ProductShoe5s,
     name: "Nike React Vision",
@@ -248,6 +253,7 @@ export const shoeProducts = [
   },
   {
     id: 6,
+    rating: 4.6,
     imgURL1: ProductShoe6,
     imgURL2: ProductShoe6s,
     name: "LeBron XX Premium",
@@ -262,6 +268,7 @@ export const shoeProducts = [
   },
   {
     id: 7,
+    rating: 4.6,
     imgURL1: ProductShoe7,
     imgURL2: ProductShoe7s,
     name: "Jordan Why Not .6",
@@ -276,6 +283,7 @@ export const shoeProducts = [
   },
   {
     id: 8,
+    rating: 4.6,
     imgURL1: ProductShoe8,
     imgURL2: ProductShoe8s,
     name: "Nike Air Max Terrascape Plus",
@@ -290,6 +298,7 @@ export const shoeProducts = [
   },
   {
     id: 9,
+    rating: 4.6,
     imgURL1: ProductShoe9,
     imgURL2: ProductShoe9s,
     name: "Tatum 1 'Denim'",
@@ -304,6 +313,7 @@ export const shoeProducts = [
   },
   {
     id: 10,
+    rating: 4.6,
     imgURL1: ProductShoe10,
     imgURL2: ProductShoe10s,
     name: "Nike Zoom Fly 5 Premium",
@@ -318,6 +328,7 @@ export const shoeProducts = [
   },
   {
     id: 11,
+    rating: 4.6,
     imgURL1: ProductShoe11,
     imgURL2: ProductShoe11s,
     name: "Nike Air Huarache",
@@ -332,6 +343,7 @@ export const shoeProducts = [
   },
   {
     id: 12,
+    rating: 4.6,
     imgURL1: ProductShoe12,
     imgURL2: ProductShoe12s,
     name: "Nike Tiempo Legend 9 Academy TF",

@@ -3,6 +3,7 @@
 import { shoeProducts } from "@/components/constants";
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
+import { cart } from "@/assets/icons/index";
 
 // Interface for the shoe details
 interface Shoe {
@@ -32,11 +33,29 @@ export default function Page({ params }: any) {
 
   const [sizeSelected, setSizeSelected] = useState(0);
   const [showEnlarged, setShowEnlarged] = useState(false);
+  const [addMessage, setAddMessage] = useState("");
+
+  function handleCart() {
+    if (sizeSelected === 0) {
+      setAddMessage("Select a size.");
+    } else {
+      console.log("Added to cart: " + shoeName);
+      setAddMessage("Added to Cart!");
+    }
+  }
+
+  function handleSizeSelect(size: number) {
+    if (sizeSelected === size) {
+      setSizeSelected(0);
+    } else {
+      setSizeSelected(size);
+    }
+  }
 
   return (
     <>
       {shoeDetails && (
-        <main className={`relative transition-all`}>
+        <main className={`relative`}>
           <div className="w-full min-h-screen relative max-container pt-28">
             {showEnlarged && (
               <section
@@ -69,14 +88,14 @@ export default function Page({ params }: any) {
                 showEnlarged ? "blur-sm" : ""
               }`}
             >
-              <div className="p-10 xl:w-2/3 flex items-center justify-center max-xl:flex-col gap-5 ">
+              <div className="p-10 xl:w-2/3 flex items-start justify-center max-xl:flex-col gap-5">
                 <button onClick={() => setShowEnlarged(true)}>
                   <Image
                     src={shoeDetails["imgURL1"]}
                     alt={shoeDetails["name"]}
                     width={400}
                     height={400}
-                    className="bg-slate-50 rounded-xl"
+                    className="bg-slate-100 rounded-xl "
                   />
                 </button>
                 <button onClick={() => setShowEnlarged(true)}>
@@ -85,7 +104,7 @@ export default function Page({ params }: any) {
                     alt={shoeDetails["name"]}
                     width={400}
                     height={400}
-                    className="bg-slate-50 rounded-xl"
+                    className="bg-slate-100 rounded-xl"
                   />
                 </button>
               </div>
@@ -108,22 +127,38 @@ export default function Page({ params }: any) {
                 <div className="text-[15px] text-slate-600 font-montserrat font-semibold py-2">
                   Select Size
                 </div>
-                <section className="grid grid-cols-4 gap-x-16 gap-y-2 max-md:gap-x-8 max-w-md">
+                <section className="grid grid-cols-4 gap-x-14 gap-y-2 max-md:gap-x-8 max-w-md">
                   {(shoeDetails["size"] as any[]).map((size: any) => (
                     <button
                       key={size}
                       value={size}
-                      className={`text-center font-montserrat border-2 w-16 rounded-md p-1 ${
+                      className={`text-center font-montserrat border-2 w-14 rounded-md p-1 ${
                         sizeSelected === size
                           ? "border-coral-red border-2"
                           : "border-slate-600"
                       }}`}
-                      onClick={() => setSizeSelected(size)}
+                      onClick={() => handleSizeSelect(size)}
                     >
                       {size}
                     </button>
                   ))}
                 </section>
+                <div className="w-2/3 max-lg:w-fit h-fit mt-5 py-5 px-0 ">
+                  <button
+                    onClick={() => handleCart()}
+                    className="w-full h-full bg-black rounded-full p-5 flex flex-row justify-center items-center hover:ring-2 ring-offset-4 ring-black transition-all"
+                  >
+                    <Image src={cart} alt="Cart Icon" width={20} height={20} />
+                    <p className="text-white ml-3 font-montserrat">
+                      Add to Cart
+                    </p>
+                  </button>
+                  {addMessage && (
+                    <p className=" py-1 text-center text-sm font-palanquin">
+                      {addMessage}
+                    </p>
+                  )}
+                </div>
               </div>
             </section>
           </div>
