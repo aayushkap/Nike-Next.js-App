@@ -9,6 +9,7 @@ import { bigShoe1 } from "@/assets/images";
 import { arrowRight } from "@/assets/icons";
 
 import Image from "next/image";
+import Link from "next/link.js";
 
 const Hero = () => {
   const [bigShoeImg, setBigShoeImg] = useState(bigShoe1); //Stores path to that image.
@@ -36,7 +37,18 @@ const Hero = () => {
           transcend trends and empower individuals worldwide.
         </p>
 
-        <Button label="Shop now" iconURL={arrowRight} link="/products" />
+        <Link href="/products">
+          <button className="flex justify-center items-center gap-2 px-7 py-4 border border-coral-red font-montserrat text-lg leading-none bg-coral-red rounded-full text-white hover:bg-white hover:text-coral-red transition-all">
+            Shop Now
+            <Image
+              src={arrowRight}
+              alt="Arrow Right"
+              height={20}
+              width={20}
+              className="ml-2 rounded-full"
+            />
+          </button>
+        </Link>
 
         <div className="flex justify-start items-start w-full mt-[26px] gap-12 max-sm:hidden">
           {statistics.map((stat, index) => (

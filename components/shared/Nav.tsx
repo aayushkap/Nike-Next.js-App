@@ -36,11 +36,11 @@ const Nav = () => {
         </a>
 
         <section>
-          <ul className=" flex-1   flex justify-center items-center gap-32 max-lg:hidden ">
+          <ul className=" flex-1 flex justify-center items-center gap-32 max-lg:hidden ">
             {navLinks.map((item) => (
               <li key={item.label}>
                 <Link
-                  href={item.isRoute ? `/${item.href}` : `#${item.href}`}
+                  href={item.isRoute ? `/${item.href}` : `/#${item.href}`}
                   className="font-montserrat leading-normal text-lg text-slate-gray hover:text-coral-red"
                 >
                   {item.label}
@@ -53,22 +53,22 @@ const Nav = () => {
         {sideBar && (
           <section
             className={
-              "rightsidebar rounded-bl-3xl bg-coral-red bg-opacity-25 lg:hidden" +
+              "rightsidebar rounded-bl-3xl bg-coral-red bg-opacity-100 lg:hidden" +
               (sideBar ? "w-fit " : "w-0")
             }
           >
-            <ul className="flex flex-col justify-center items-center gap-24 py-20 ">
+            <ul className="flex flex-col justify-center items-center gap-24 py-20 transition-al">
               {navLinks.map((item) => (
                 <li
                   key={item.label}
                   className="text-right w-full px-10 max-sm:px-4"
                 >
-                  <a
-                    href={item.href}
-                    className="font-montserrat leading-normal text-lg text-black hover:text-slate-gray"
+                  <Link
+                    href={item.isRoute ? `/${item.href}` : `/#${item.href}`}
+                    className="font-montserrat leading-normal text-lg text-black hover:text-white transition-all"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

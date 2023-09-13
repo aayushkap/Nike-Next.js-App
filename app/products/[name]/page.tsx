@@ -88,7 +88,7 @@ export default function Page({ params }: any) {
                 showEnlarged ? "blur-sm" : ""
               }`}
             >
-              <div className="p-10 xl:w-2/3 flex items-start justify-center max-xl:flex-col gap-5">
+              <div className="p-10 xl:w-2/3 flex items-center justify-center max-xl:flex-col gap-5">
                 <button onClick={() => setShowEnlarged(true)}>
                   <Image
                     src={shoeDetails["imgURL1"]}

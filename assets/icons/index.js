@@ -13,6 +13,7 @@ import twitter from "./twitter.svg";
 import filter from "./filter.jpg";
 import check from "./check.png";
 import cart from "./cart.svg";
+import swoosh from "./swoosh.svg";
 
 export {
   filter,
@@ -30,4 +31,5 @@ export {
   twitter,
   check,
   cart,
+  swoosh,
 };
