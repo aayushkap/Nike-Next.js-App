@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "../shared/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { swoosh } from "@/assets/icons";
 import Image from "next/image";
 
@@ -12,6 +12,8 @@ const Subscribe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(email);
+
+    setMsg("load");
 
     const res = await fetch("/api/contact", {
       method: "POST",
@@ -46,11 +48,19 @@ const Subscribe = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <button className="bg-coral-red border-2 border-coral-red h-full min-h-[50px] rounded-full w-56 text-white font-semibold hover:text-black hover:bg-transparent transition-all flex justify-center items-center">
+          <button
+            disabled={msg === "success" || msg === "load"}
+            className="bg-coral-red border-2 border-coral-red h-full min-h-[50px] rounded-full w-56 text-white font-semibold hover:text-black hover:bg-transparent transition-all flex justify-center items-center"
+          >
             {msg === "success" ? (
-              <Image src={swoosh} alt="Tick" width={50} height={50} />
+              <p className="flex flex-row justify-center items-center gap-2 text-black">
+                Subscribed
+                <Image src={swoosh} alt="Tick" width={40} height={40} />
+              </p>
             ) : msg === "fail" ? (
               "Failed"
+            ) : msg === "load" ? (
+              <p className=" animate-pulse">Processing</p>
             ) : (
               "Subscribe"
             )}

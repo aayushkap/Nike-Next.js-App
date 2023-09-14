@@ -81,10 +81,10 @@ export default function Page({ params }: any) {
               </section>
             )}
             <div className="bg-coral-red bg-opacity-25 leading-10 rounded-lg text-center font-palanquin text-md w-full ">
-              Free Shipping for orders over $99.
+              Free Shipping on orders over $99.
             </div>
             <section
-              className={`flex justify-center max-lg:flex-col ${
+              className={`flex justify-center lg:items-start max-lg:flex-col ${
                 showEnlarged ? "blur-sm" : ""
               }`}
             >

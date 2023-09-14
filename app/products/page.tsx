@@ -43,7 +43,7 @@ export default function Home() {
     <main className="relative">
       <div className=" w-full relative max-container pt-28 ">
         <div className="bg-coral-red bg-opacity-25 leading-10 rounded-lg text-center font-palanquin text-md w-full">
-          Free Shipping for orders over $99.
+          Free Shipping on orders over $99.
         </div>
       </div>
       <section className="flex justify-center items-center py-5 lg:hidden">
