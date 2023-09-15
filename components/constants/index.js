@@ -164,7 +164,7 @@ export const footerLinks = [
     title: "Get in touch",
     links: [
       { name: "customer@nike.com", link: "mailto:customer@nike.com" },
-      { name: "+92554862354", link: "tel:+92554862354" },
+      { name: "+042345632", link: "tel:+042345632" },
     ],
   },
 ];
@@ -174,6 +174,9 @@ export const socialMedia = [
   { src: twitter, alt: "twitter logo" },
   { src: instagram, alt: "instagram logo" },
 ];
+
+export const shipVal = 120;
+export const shipMsg = `Free shipping on all orders over $${shipVal}`;
 
 export const shoeProducts = [
   {

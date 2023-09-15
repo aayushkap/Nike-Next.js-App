@@ -14,6 +14,9 @@ import filter from "./filter.jpg";
 import check from "./check.png";
 import cart from "./cart.svg";
 import swoosh from "./swoosh.svg";
+import shoppingBag from "./shop-bag.svg";
+import cross from "./cross.svg";
+import delivery from "./delivery.svg";
 
 export {
   filter,
@@ -32,4 +35,7 @@ export {
   check,
   cart,
   swoosh,
+  shoppingBag,
+  cross,
+  delivery,
 };

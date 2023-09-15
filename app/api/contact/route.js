@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 const { connectDB } = require("@/app/lib/mongodb.js");
 import mongoose from "mongoose";
 import Contact from "@/app/models/contact.js";
+import DiscountCode from "@/app/models/discountCode.js";
 
 export async function POST(req) {
   const { email } = await req.json();
@@ -33,5 +34,34 @@ export async function POST(req) {
         msg: "fail",
         success: false,
       });
+  }
+}
+
+export async function GET(req) {
+  try {
+    await connectDB();
+
+    // Find all discount codes
+    const discountCodes = await DiscountCode.find({});
+
+    if (discountCodes.length > 0) {
+      return NextResponse.json({
+        msg: "success",
+        success: true,
+        discountCodes: discountCodes,
+      });
+    } else {
+      return NextResponse.json({
+        msg: "No discount codes found",
+        success: false,
+      });
+    }
+  } catch (err) {
+    console.error(err);
+
+    return NextResponse.json({
+      msg: "fail",
+      success: false,
+    });
   }
 }

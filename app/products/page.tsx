@@ -8,6 +8,7 @@ import GenderFilter from "@/components/sectionsProducts/GenderFilter";
 import ColourFilter from "@/components/sectionsProducts/ColourFilter";
 import SizeFilter from "@/components/sectionsProducts/SizeFilter";
 import TypeFilter from "@/components/sectionsProducts/TypeFilter";
+import { shipMsg } from "@/components/constants";
 
 export default function Home() {
   const [showFilters, setShowFilters] = useState(false);
@@ -42,8 +43,8 @@ export default function Home() {
   return (
     <main className="relative">
       <div className=" w-full relative max-container pt-28 ">
-        <div className="bg-coral-red bg-opacity-25 leading-10 rounded-lg text-center font-palanquin text-md w-full">
-          Free Shipping on orders over $99.
+        <div className="bg-coral-red bg-opacity-25 leading-10 rounded-lg text-center font-montserrat text-md w-full">
+          {shipMsg}
         </div>
       </div>
       <section className="flex justify-center items-center py-5 lg:hidden">

@@ -1,8 +1,8 @@
 "use client";
 
-import { shoeProducts } from "@/components/constants";
+import { shipMsg, shoeProducts } from "@/components/constants";
 import Image, { StaticImageData } from "next/image";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { cart } from "@/assets/icons/index";
 
 // Interface for the shoe details
@@ -35,20 +35,38 @@ export default function Page({ params }: any) {
   const [showEnlarged, setShowEnlarged] = useState(false);
   const [addMessage, setAddMessage] = useState("");
 
-  function handleCart() {
-    if (sizeSelected === 0) {
-      setAddMessage("Select a size.");
-    } else {
-      console.log("Added to cart: " + shoeName);
-      setAddMessage("Added to Cart!");
-    }
-  }
+  const products = [
+    { productId: 123, size: "Large" },
+    { productId: 456, size: "Medium" },
+    { productId: 789, size: "Small" },
+  ];
 
   function handleSizeSelect(size: number) {
     if (sizeSelected === size) {
       setSizeSelected(0);
     } else {
       setSizeSelected(size);
+    }
+  }
+
+  function handleCart() {
+    if (sizeSelected === 0) {
+      setAddMessage("Select a size.");
+    } else {
+      let item = {
+        name: shoeDetails ? shoeName : "",
+        size: sizeSelected,
+        price: shoeDetails ? shoeDetails["price"] : "",
+        colour: shoeDetails ? shoeDetails["colour"] : "",
+      };
+      let random = Math.floor(Math.random() * 1000);
+
+      const key = `cart-${random}`;
+      const productInfoString = JSON.stringify(item);
+      localStorage.setItem(key, productInfoString);
+
+      console.log("Added to cart: " + shoeName + " - " + sizeSelected);
+      setAddMessage("Added to Cart!");
     }
   }
 
@@ -80,8 +98,8 @@ export default function Page({ params }: any) {
                 </div>
               </section>
             )}
-            <div className="bg-coral-red bg-opacity-25 leading-10 rounded-lg text-center font-palanquin text-md w-full ">
-              Free Shipping on orders over $99.
+            <div className="bg-coral-red bg-opacity-25 leading-10 rounded-lg text-center font-montserrat text-md w-full ">
+              {shipMsg}
             </div>
             <section
               className={`flex justify-center lg:items-start max-lg:flex-col ${
