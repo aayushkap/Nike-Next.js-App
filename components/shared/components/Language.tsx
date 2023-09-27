@@ -20,14 +20,14 @@ function LanguageSelector() {
   };
 
   return (
-    <div className="p-0 m-0 text-[12px] flex flex-row items-center">
+    <div className="p-0 m-0 text-[12px] flex flex-row items-center overflow-visible">
       <label>
         <Image src={language} alt="Language" width={17} height={17} />
       </label>
       <select
         value={selectedLanguage}
         onChange={(e) => handleChangeLanguage(e.target.value)}
-        className=" bg-transparent active:outline-none focus:outline-none font-semibold text-slate-gray"
+        className="overflow-visible bg-transparent active:outline-none focus:outline-none font-semibold text-slate-gray"
       >
         <option value="en">English</option>
         <option value="ar">عربي</option>

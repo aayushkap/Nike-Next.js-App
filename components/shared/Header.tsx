@@ -10,7 +10,7 @@ const Header = () => {
   const { t } = useTranslation();
   return (
     <header
-      className="z-50 padding-x w-full py-2 absolute font-palanquin"
+      className="z-50 padding-x w-full py-2 absolute font-palanquin overflow-visible"
       dir={curLang === "ar" ? "rtl" : ""}
     >
       <section className="max-container flex items-center justify-end gap-2 text-xs text-slate-gray">
