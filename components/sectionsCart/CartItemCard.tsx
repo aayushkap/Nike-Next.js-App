@@ -6,6 +6,9 @@ import Image, { StaticImageData } from "next/image";
 import { cross } from "@/assets/icons";
 import { useRouter } from "next/navigation";
 
+import i18n from "@/app/i18n";
+import { useTranslation } from "react-i18next";
+
 const CartItemCard = ({
   name,
   size,
@@ -36,6 +39,9 @@ const CartItemCard = ({
     router.push(`/products/${name}`);
   }
 
+  const curLang = i18n.language;
+  const { t } = useTranslation();
+
   return (
     <section className="relative w-full cursor-pointer">
       <div className="w-full h-fit flex items-center justify-between gap-10 rounded-full px-10 py-2 bg-pale-blue shadow-lg">
@@ -47,9 +53,13 @@ const CartItemCard = ({
             {image && <Image src={image} width={100} height={100} alt={name} />}
           </div>
           <div className="flex flex-col leading-1 font-montserrat w-fit">
-            <p className="text-xl max-sm:text-lg font-semibold">{name}</p>
+            <p className="text-xl max-sm:text-lg font-semibold">
+              {t(`products.${name}`)}
+            </p>
             <div className=" w-36 flex justify-between max-sm:flex-col">
-              <p className="text-slate-gray">Size: {size}</p>
+              <p className="text-slate-gray">
+                {t(`cart.Size`)}: {size}
+              </p>
               <p className="text-coral-red font-semibold">{price}</p>
             </div>
           </div>

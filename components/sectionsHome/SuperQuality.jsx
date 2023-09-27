@@ -3,7 +3,11 @@ import Button from "../shared/Button";
 
 import Image from "next/image";
 
+import i18n from "@/app/i18n.js";
+import { useTranslation } from "react-i18next";
+
 const SuperQuality = () => {
+  const { t } = useTranslation();
   return (
     <section
       id="about-us"
@@ -11,24 +15,26 @@ const SuperQuality = () => {
     >
       <div className="flex flex-1 flex-col">
         <h2 className="font-palanquin text-4xl capitalize font-bold lg:max-w-lg">
-          Experience the
-          <span className="text-coral-red"> Art </span>
+          {t(`home.superQuality.title1`)}
+          <span className="text-coral-red">
+            {" "}
+            {t(`home.superQuality.title2`)}{" "}
+          </span>
           <br />
-          of
-          <span className="text-coral-red"> Innovation</span>
+          {t(`home.superQuality.title3`)}
+          <span className="text-coral-red">
+            {" "}
+            {t(`home.superQuality.title4`)}
+          </span>
         </h2>
         <p className="mt-4 lg:max-w-lg info-text">
-          Enjoy the intersection of technology and design with our innovative
-          footwear. From responsive cushioning systems to advanced materials,
-          each shoe is a testament to our commitment to pushing the boundaries
-          of what's possible.
+          {t(`home.superQuality.subtitle1`)}{" "}
         </p>
         <p className="mt-6 lg:max-w-lg info-text">
-          Walk, run, or jump with confidence, knowing that every step is
-          supported by cutting-edge technology.
+          {t(`home.superQuality.subtitle2`)}{" "}
         </p>
         <div className="mt-6">
-          <Button label="View Details" />
+          <Button label={t(`home.superQuality.viewDetails`)} />
         </div>
       </div>
       <div className="flex-1 flex justify-center items-center">

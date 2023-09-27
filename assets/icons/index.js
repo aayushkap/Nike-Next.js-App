@@ -17,6 +17,7 @@ import swoosh from "./swoosh.svg";
 import shoppingBag from "./shop-bag.svg";
 import cross from "./cross.svg";
 import delivery from "./delivery.svg";
+import language from "./language.svg";
 
 export {
   filter,
@@ -38,4 +39,5 @@ export {
   shoppingBag,
   cross,
   delivery,
+  language,
 };

@@ -3,8 +3,10 @@ import { footerLogo } from "@/assets/images";
 import { footerLinks, socialMedia } from "../constants/index.js";
 
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="max-container ">
       <div className="flex justify-between items-start flex-wrap flex-col">
@@ -18,12 +20,15 @@ const Footer = () => {
             />
           </a>
           <p className="mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm font-bold cursor-pointer">
-            FIND A STORE
+            {t(`footer.findStore`)}
           </p>
 
           <div className="flex items-center gap-5 mt-8">
             {socialMedia.map((social) => (
-              <div className="flex justify-center items-center w-12 h-12 bg-white rounded-full cursor-pointer hover:bg-slate-gray">
+              <div
+                key={social.alt}
+                className="flex justify-center items-center w-12 h-12 bg-white rounded-full cursor-pointer hover:bg-slate-gray"
+              >
                 <Image
                   src={social.src}
                   alt={social.alt}
@@ -36,9 +41,9 @@ const Footer = () => {
         </div>
         <div className="flex flex-1 justify-between lg:gap-10 gap-20 flex-wrap mt-10 w-full">
           {footerLinks.map((link) => (
-            <div>
+            <div key={link.title}>
               <h4 className="text-white font-montserrat text-2xl leading-normal font-medium ">
-                {link.title}
+                {t(`footer.${link.title}`)}
               </h4>
               <ul>
                 {link.links.map((link) => (
@@ -46,7 +51,7 @@ const Footer = () => {
                     key={link.name}
                     className="mt-3 text-white-400 font-montserrat text-base leading-normal hover:text-slate-gray"
                   >
-                    <a href={link.link}>{link.name}</a>
+                    <a href={link.link}>{t(`footer.${link.name}`)}</a>
                   </li>
                 ))}
               </ul>
@@ -61,11 +66,11 @@ const Footer = () => {
             alt="Copyright"
             width={20}
             height={20}
-            className="rounded-full"
+            className="rounded-full mx-1"
           />
-          <p>Copyright. All rights reserved.</p>
+          <p>{t(`footer.copyRight`)}</p>
         </div>
-        <p className=" font-montserrat cursor-pointer">Terms & Conditions</p>
+        <p className=" font-montserrat cursor-pointer">{t(`footer.tc`)}</p>
       </div>
     </footer>
   );

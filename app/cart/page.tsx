@@ -10,6 +10,9 @@ import { useRouter } from "next/navigation";
 import React, { use } from "react";
 import { useEffect, useState } from "react";
 
+import i18n from "../i18n";
+import { useTranslation } from "react-i18next";
+
 const page = () => {
   const [cartItems, setCartItems] = useState<any[]>([]); // Store Cart Items as hook from Local Storage
   const [total, setTotal] = useState<number>(0); // Store Total as hook from Cart Items
@@ -94,12 +97,15 @@ const page = () => {
     setLoading(false);
   };
 
+  const curLang = i18n.language;
+  const { t } = useTranslation();
+
   return (
     <>
-      <main className="relative">
+      <main className="relative" dir={curLang === "ar" ? "rtl" : ""}>
         <div className="w-full min-h-screen relative max-container pt-28">
           <div className="bg-coral-red bg-opacity-25 leading-10 rounded-lg text-center font-montserrat text-md w-full ">
-            {shipMsg}
+            {t(shipMsg)}
           </div>
           <section className="flex max-lg:flex-col flex-row">
             <div className="max-lg:w-full w-2/3 p-10 flex flex-col gap-5">
@@ -116,9 +122,11 @@ const page = () => {
             </div>
             <div className="max-lg:w-full w-1/3 p-10 font-montserrat">
               <p className="text-xl font-semibold leading-10">
-                Subtotal ({cartItems.length})
+                {t("cart.Subtotal")} ({cartItems.length})
               </p>
-              <div>$ {total} (Inclusive of VAT)</div>
+              <div>
+                $ {total} ({t("cart.Inclusive of VAT")})
+              </div>
               <hr className="my-5" />
               <div className="flex items-center gap-3">
                 <Image
@@ -129,15 +137,19 @@ const page = () => {
                 />
                 {total >= shipVal ? (
                   <div className="font-palanquin">
-                    Applicable for free shipping.
+                    {t("cart.Applicable for free shipping.")}
                   </div>
                 ) : (
-                  <div>Shipping will be calculated on checkout.</div>
+                  <div>
+                    {t("cart.Shipping will be calculated on checkout.")}
+                  </div>
                 )}
               </div>
               <hr className="my-5" />
               <section>
-                <p className="text-xl font-semibold pb-2">Coupon Code</p>
+                <p className="text-xl font-semibold pb-2">
+                  {t("cart.Coupon Code")}
+                </p>
                 <form
                   onSubmit={handleSubmit}
                   className="flex items-center gap-3"
@@ -145,25 +157,27 @@ const page = () => {
                   <input
                     type="text"
                     required
-                    placeholder="Enter"
+                    placeholder={t(`cart.Enter`)}
                     className="input border rounded-full p-2"
                     value={userCode}
                     onChange={(e) => setUserCode(e.target.value)}
                   ></input>
                   <button
                     className={`p-2 active:ring-1 ring-black rounded-full transition-all disabled:text-gray-500 disabled:active:ring-0 ${
-                      loading ? " animate-pulse" : ""
+                      loading ? "animate-pulse" : ""
                     }`}
                     disabled={loading}
                   >
-                    Apply
+                    {t("cart.Apply")}
                   </button>
                 </form>
-                {reply ? <p className="pt-2">{reply}</p> : null}
+                {reply ? <p className="pt-2">{t(`cart.${reply}`)}</p> : null}
               </section>
               <hr className="my-5" />
               <section>
-                <p className="text-xl font-semibold leading-10">Total</p>
+                <p className="text-xl font-semibold leading-10">
+                  {t("cart.Total")}
+                </p>
                 {parseInt(discountAmt) > 0 ? (
                   <div>
                     $ {total} -{" "}

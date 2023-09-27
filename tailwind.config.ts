@@ -22,6 +22,7 @@ export default {
       fontFamily: {
         palanquin: ["Palanquin", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
+        noto: ["Noto", "sans-serif"],
       },
       colors: {
         primary: "#ECEEFF",

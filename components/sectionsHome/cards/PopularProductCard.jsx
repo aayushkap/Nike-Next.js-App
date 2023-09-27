@@ -4,11 +4,17 @@ import { star } from "@/assets/icons";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+import i18n from "@/app/i18n.js";
+import { useTranslation } from "react-i18next";
+
 const PopularProductCard = ({ imgURL1, name, price, rating }) => {
   const router = useRouter();
   const handleClick = (name) => {
     router.push(`/products/${name}`);
   };
+
+  const { t } = useTranslation();
+  const curLang = i18n.language;
 
   return (
     <div
@@ -29,7 +35,7 @@ const PopularProductCard = ({ imgURL1, name, price, rating }) => {
         </p>
       </div>
       <h3 className="mt-2 text-2xl leading-normal font-semibold font-palanquin">
-        {name}
+        {t(`products.${name}`)}
       </h3>
       <p className="mt-2 font-semibold font-montserrat text-coral-red text-lg leading-normal">
         {price}

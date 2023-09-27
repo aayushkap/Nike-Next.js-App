@@ -1,16 +1,21 @@
 import { reviews } from "../constants/index.js";
 import ReviewCard from "../sectionsHome/cards/ReviewCard";
+import { useTranslation } from "react-i18next";
 
 const CustomerReviews = () => {
+  const { t } = useTranslation();
   return (
     <section className="max-container">
       <h3 className="font-palanquin text-center text-4xl font-bold">
-        What
-        <span className="text-coral-red"> People</span> Are Saying About Nike
-        Footwear
+        {t(`home.customer.title1`)}
+        <span className="text-coral-red">
+          {" "}
+          {t(`home.customer.title2`)}
+        </span>{" "}
+        {t(`home.customer.title3`)}
       </h3>
       <p className="info-text m-auto mt-4 max-w-lg text-center">
-        Hear genuine stories from our satisfied customers.
+        {t(`home.customer.subtitle`)}
       </p>
       <div className=" mt-20 flex flex-1 justify-evenly items-center max-lg:flex-col gap-14">
         {reviews.map((review) => (

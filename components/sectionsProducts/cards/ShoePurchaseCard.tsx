@@ -1,8 +1,10 @@
 "use client";
 
+import i18n from "@/app/i18n";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const ShoePurchaseCard = ({
   imgURL1,
@@ -17,6 +19,9 @@ const ShoePurchaseCard = ({
   const handleClick = (name: any) => {
     router.push(`/products/${name}`);
   };
+
+  const curLang = i18n.language;
+  const { t } = useTranslation();
   return (
     <section
       onClick={() => handleClick(name)}
@@ -33,11 +38,13 @@ const ShoePurchaseCard = ({
 
         <div className="w-full max-w-[300px] font-montserrat flex flex-col py-2">
           <div className="w-full text-coral-red text-sm font-semibold ">
-            {special}
+            {special === "" ? "" : t(`products.${special}`)}
           </div>
-          <div className="w-full font-semibold text-xl">{name}</div>
+          <div className="w-full font-semibold text-xl">
+            {t(`products.${name}`)}
+          </div>
           <div className="w-full text-slate-gray text-md">
-            {type} - {gender}
+            {t(`products.${type}`)} - {t(`products.${gender}`)}
           </div>
 
           <div className="w-full py-2 font-semibold text-xlk ">{price}</div>

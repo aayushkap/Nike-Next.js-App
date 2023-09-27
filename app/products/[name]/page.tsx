@@ -4,6 +4,8 @@ import { shipMsg, shoeProducts } from "@/components/constants";
 import Image, { StaticImageData } from "next/image";
 import { use, useEffect, useState } from "react";
 import { cart } from "@/assets/icons/index";
+import i18n from "@/app/i18n";
+import { useTranslation } from "react-i18next";
 
 // Interface for the shoe details
 interface Shoe {
@@ -22,7 +24,7 @@ interface Shoe {
 export default function Page({ params }: any) {
   const shoeName = decodeURI(params.name);
 
-  var shoeDetails: Shoe | null = null;
+  var shoeDetails: any | null = null;
 
   // Find the matching shoe in shoeProducts
   shoeProducts.forEach((shoe) => {
@@ -34,12 +36,6 @@ export default function Page({ params }: any) {
   const [sizeSelected, setSizeSelected] = useState(0);
   const [showEnlarged, setShowEnlarged] = useState(false);
   const [addMessage, setAddMessage] = useState("");
-
-  const products = [
-    { productId: 123, size: "Large" },
-    { productId: 456, size: "Medium" },
-    { productId: 789, size: "Small" },
-  ];
 
   function handleSizeSelect(size: number) {
     if (sizeSelected === size) {
@@ -70,10 +66,13 @@ export default function Page({ params }: any) {
     }
   }
 
+  const curLang = i18n.language;
+  const { t } = useTranslation();
+
   return (
     <>
       {shoeDetails && (
-        <main className={`relative`}>
+        <main className={`relative`} dir={curLang === "ar" ? "rtl" : ""}>
           <div className="w-full min-h-screen relative max-container pt-28">
             {showEnlarged && (
               <section
@@ -99,7 +98,7 @@ export default function Page({ params }: any) {
               </section>
             )}
             <div className="bg-coral-red bg-opacity-25 leading-10 rounded-lg text-center font-montserrat text-md w-full ">
-              {shipMsg}
+              {t(shipMsg)}
             </div>
             <section
               className={`flex justify-center lg:items-start max-lg:flex-col ${
@@ -128,22 +127,25 @@ export default function Page({ params }: any) {
               </div>
               <div className="w-1/3 h-fit min-h-[400px] p-10 max-lg:w-full">
                 <div className="w-full text-coral-red text-sm font-semibold ">
-                  {shoeDetails["special"]}
+                  {shoeDetails["special"] === ""
+                    ? ""
+                    : t(`products.${shoeDetails["special"]}`)}
                 </div>
                 <div className="w-full font-semibold text-4xl ">
-                  {shoeDetails["name"]}
+                  {t(`products.${shoeDetails["name"]}`)}
                 </div>
                 <div className="w-full text-slate-gray text-md py-0">
-                  {shoeDetails["type"]} - {shoeDetails["gender"]}
+                  {t(`products.${shoeDetails["type"]}`)} -{" "}
+                  {t(`products.${shoeDetails["gender"]}`)}
                 </div>
                 <div className=" py-4 font-montserrat text-slate-gray text-lg leading-6">
-                  {shoeDetails["description"]}
+                  {t(`products.${shoeDetails["description"]}`)}
                 </div>
                 <div className="w-full py-2 font-semibold text-md ">
                   {shoeDetails["price"]}
                 </div>
                 <div className="text-[15px] text-slate-600 font-montserrat font-semibold py-2">
-                  Select Size
+                  {t(`productPurchase.Select Size`)}
                 </div>
                 <section className="grid grid-cols-4 gap-x-14 gap-y-2 max-md:gap-x-8 max-w-md">
                   {(shoeDetails["size"] as any[]).map((size: any) => (
@@ -167,13 +169,13 @@ export default function Page({ params }: any) {
                     className="w-full h-full bg-black rounded-full p-5 flex flex-row justify-center items-center hover:ring-2 ring-offset-4 ring-black transition-all"
                   >
                     <Image src={cart} alt="Cart Icon" width={20} height={20} />
-                    <p className="text-white ml-3 font-montserrat">
-                      Add to Cart
+                    <p className="text-white mx-3 font-montserrat">
+                      {t(`productPurchase.Add to cart`)}
                     </p>
                   </button>
                   {addMessage && (
                     <p className=" py-1 text-center text-sm font-palanquin">
-                      {addMessage}
+                      {t(`productPurchase.${addMessage}`)}
                     </p>
                   )}
                 </div>

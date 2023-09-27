@@ -10,6 +10,9 @@ import SizeFilter from "@/components/sectionsProducts/SizeFilter";
 import TypeFilter from "@/components/sectionsProducts/TypeFilter";
 import { shipMsg } from "@/components/constants";
 
+import i18n from "../i18n"; // Import the i18n configuration file
+import { useTranslation } from "react-i18next";
+
 export default function Home() {
   const [showFilters, setShowFilters] = useState(false);
 
@@ -40,11 +43,14 @@ export default function Home() {
   const [sizes, setSizes] = useState([]);
   const [types, setTypes] = useState([]);
 
+  const curLang = i18n.language;
+  const { t } = useTranslation();
+
   return (
-    <main className="relative">
+    <main className="relative" dir={curLang === "ar" ? "rtl" : ""}>
       <div className=" w-full relative max-container pt-28 ">
         <div className="bg-coral-red bg-opacity-25 leading-10 rounded-lg text-center font-montserrat text-md w-full">
-          {shipMsg}
+          {t(shipMsg)}
         </div>
       </div>
       <section className="flex justify-center items-center py-5 lg:hidden">
@@ -59,8 +65,12 @@ export default function Home() {
       <section className="w-full flex lg:flex-row flex-col justify-center lg:h-fit max-container">
         {showFilters && (
           <div className="relative lg:w-1/5 w-full p-8 flex flex-col items-center">
-            <p className="w-full text-left font-semibold text-xl">
-              Shoes ({itemCount})
+            <p
+              className={`w-full font-semibold text-xl ${
+                curLang === "ar" ? "text-right" : "text-left"
+              }`}
+            >
+              {t("filters.Shoes")} ({itemCount})
             </p>
             <hr className="w-full my-5" />
             <TypeFilter types={types} setTypes={setTypes} />
@@ -89,7 +99,7 @@ export default function Home() {
               }}
               className="pt-16 w-full pb-0 font-montserrat font-semibold"
             >
-              Show More
+              {t(`filters.Show More`)}
             </button>
           )}
         </div>

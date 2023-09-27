@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { shoeProducts } from "../constants";
+import i18n from "@/app/i18n";
+import { useTranslation } from "react-i18next";
 
 const SizeFilter = ({ sizes, setSizes }: any) => {
   function toggleSize(size: string) {
@@ -24,10 +26,13 @@ const SizeFilter = ({ sizes, setSizes }: any) => {
     setAllSizes(filteredSizes);
   }, [sizes]);
 
+  const curLang = i18n.language;
+  const { t } = useTranslation();
+
   return (
     <section className="w-full gap-2">
       <p className="font-semibold py-1">
-        Shoe Size {sizes.length ? `(${sizes.length})` : ""}
+        {t(`filters.Shoe Size`)} {sizes.length ? `(${sizes.length})` : ""}
       </p>
       <section className="grid grid-cols-3 gap-6">
         {allSizes.map((size: any) => (

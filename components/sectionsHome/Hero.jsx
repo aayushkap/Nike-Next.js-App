@@ -11,8 +11,13 @@ import { arrowRight } from "@/assets/icons";
 import Image from "next/image";
 import Link from "next/link.js";
 
+import { useTranslation } from "react-i18next";
+import i18n from "@/app/i18n.js";
+
 const Hero = () => {
   const [bigShoeImg, setBigShoeImg] = useState(bigShoe1); //Stores path to that image.
+  const { t } = useTranslation();
+  const curLang = i18n.language;
 
   return (
     <section
@@ -21,31 +26,38 @@ const Hero = () => {
     >
       <div className="relative xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x pt-28">
         <p className="text-xl font-montserrat text-coral-red">
-          Our Summer collections
+          {t(`home.hero.summerCollections`)}
         </p>
 
         <h1 className="mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold">
-          <span className=" xl:bg-white xl:whitespace-nowrap relative z-10 pr-10 rounded-r-3xl">
-            Go The Distance
+          <span
+            className={`xl:bg-white xl:whitespace-nowrap relative z-10 rounded-r-3xl ${
+              curLang === "ar" ? "" : "pr-10"
+            }`}
+          >
+            {t(`home.hero.title1`)}
           </span>
           <br />
-          With <span className="text-coral-red inline-block mt-3">Nike</span>
+          {t(`home.hero.title2`)}{" "}
+          <span className="text-coral-red inline-block mt-3">
+            {t(`home.hero.title3`)}
+          </span>
         </h1>
         <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm">
-          Welcome to the ultimate destination for Nike footwear enthusiasts.
-          Discover a curated selection of our most popular shoe styles that
-          transcend trends and empower individuals worldwide.
+          {t(`home.hero.subtitle`)}
         </p>
 
         <Link href="/products">
           <button className="flex justify-center items-center gap-2 px-7 py-4 border border-coral-red font-montserrat text-lg leading-none bg-coral-red rounded-full text-white hover:bg-white hover:text-coral-red transition-all">
-            Shop Now
+            {t(`home.hero.shopNow`)}
             <Image
               src={arrowRight}
               alt="Arrow Right"
               height={20}
               width={20}
-              className="ml-2 rounded-full"
+              className={`rounded-full ${
+                curLang === "ar" ? "mr-2 rotate-180" : "ml-2"
+              }`}
             />
           </button>
         </Link>
@@ -55,7 +67,7 @@ const Hero = () => {
             <div key={index}>
               <p className="text-4xl font-palanquin font-bold">{stat.value}</p>
               <p className="leading-7 font-montserrat text-slate-gray xl:whitespace-nowrap">
-                {stat.label}
+                {t(`home.hero.${stat.label}`)}
               </p>
             </div>
           ))}

@@ -4,6 +4,7 @@ import Button from "../shared/Button";
 import { useEffect, useState } from "react";
 import { swoosh } from "@/assets/icons";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const Subscribe = () => {
   const [email, setEmail] = useState("");
@@ -25,15 +26,16 @@ const Subscribe = () => {
     setMsg(msg);
     setEmail("");
   };
-
+  const { t } = useTranslation();
   return (
     <section
       id="contact-us"
       className="max-container flex justify-between items-center max-lg:flex-col gap-10 pb-5"
     >
       <h3 className="text-4xl leading-[68px] lg:max-w-md font-palanquin font-bold">
-        Sign Up for
-        <span className="text-coral-red"> Updates </span>& Newsletter
+        {t(`home.subscribe.title1`)}
+        <span className="text-coral-red"> {t(`home.subscribe.title2`)} </span>
+        {t(`home.subscribe.title3`)}
       </h3>
 
       <form onSubmit={handleSubmit} className="w-full h-fit">
@@ -41,7 +43,7 @@ const Subscribe = () => {
           <input
             type="email"
             required
-            placeholder="subscribe@nike.com"
+            placeholder={t(`home.subscribe.placeHolder`)}
             className="input"
             minLength={5}
             value={email}
@@ -54,15 +56,15 @@ const Subscribe = () => {
           >
             {msg === "success" ? (
               <p className="flex flex-row justify-center items-center gap-2 text-black">
-                Subscribed
+                {t(`home.subscribe.Subscribed`)}
                 <Image src={swoosh} alt="Tick" width={40} height={40} />
               </p>
             ) : msg === "fail" ? (
-              "Failed"
+              t(`home.subscribe.Failed`)
             ) : msg === "load" ? (
-              <p className=" animate-pulse">Processing</p>
+              <p className=" animate-pulse">{t(`home.subscribe.Processing`)}</p>
             ) : (
-              "Subscribe"
+              t(`home.subscribe.Subscribe`)
             )}
           </button>
         </div>

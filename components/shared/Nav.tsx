@@ -9,6 +9,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link.js";
 
+import i18n from "@/app/i18n.js";
+import { useTranslation } from "react-i18next";
 const Nav = () => {
   const [sideBar, setSideBar] = useState(false);
 
@@ -59,8 +61,14 @@ const Nav = () => {
     setCartItems(newCartItems); //Update hook
   }, [isHovered]);
 
+  const { t } = useTranslation();
+  const curLang = i18n.language;
+
   return (
-    <header className="padding-x py-8 absolute z-20 w-full">
+    <header
+      className="padding-x py-8 absolute z-20 w-full"
+      dir={curLang === "ar" ? "rtl" : ""}
+    >
       <nav className="flex items-center justify-between max-container">
         <a href="/">
           <Image src={headerLogo} alt="Logo" width={130} height={29} />
@@ -74,7 +82,7 @@ const Nav = () => {
                   href={item.isRoute ? `/${item.href}` : `/#${item.href}`}
                   className="font-montserrat leading-normal text-lg text-slate-gray hover:text-coral-red"
                 >
-                  {item.label}
+                  {t(`nav.${item.label}`)}
                 </Link>
               </li>
             ))}
@@ -84,7 +92,11 @@ const Nav = () => {
         {sideBar && (
           <section
             className={
-              "rightsidebar rounded-bl-3xl bg-coral-red bg-opacity-100 lg:hidden transition-all" +
+              `${
+                curLang === "ar"
+                  ? "leftsidebar rounded-br-3xl"
+                  : "rightsidebar rounded-bl-3xl"
+              } bg-coral-red bg-opacity-100 lg:hidden transition-all` +
               (sideBar ? "w-fit" : "w-0")
             }
           >
@@ -98,7 +110,7 @@ const Nav = () => {
                     href={item.isRoute ? `/${item.href}` : `/#${item.href}`}
                     className="font-montserrat leading-normal text-lg text-black hover:text-white transition-all"
                   >
-                    {item.label}
+                    {t(`nav.${item.label}`)}
                   </Link>
                 </li>
               ))}
@@ -121,7 +133,9 @@ const Nav = () => {
           </Link>
 
           <section
-            className={`absolute max-lg:hidden transition-all top-10 right-0 h-fit max-h-64 overflow-y-hidden p-3 min-w-max bg-white shadow-2xl rounded-xl border-2 border-coral-red ${
+            className={`absolute max-lg:hidden transition-all top-10 ${
+              curLang === "ar" ? "left-0" : "right-0"
+            } h-fit max-h-64 overflow-y-hidden p-3 min-w-max bg-white shadow-2xl rounded-xl border-2 border-coral-red ${
               isHovered
                 ? "opacity-100 translate-y-0 "
                 : "opacity-0 -translate-y-5 delay-500"
@@ -131,13 +145,15 @@ const Nav = () => {
               cartItems.map((item, key) => (
                 <ul key={key} className="leading-5 p-2">
                   <li>
-                    {item["name"]}
-                    <p className=" text-gray-400 fon">Size - {item["size"]}</p>
+                    {t(`products.${item["name"]}`)}
+                    <p className=" text-gray-400 fon">
+                      {t(`nav.Size`)} - {item["size"]}
+                    </p>
                   </li>
                 </ul>
               ))
             ) : (
-              <div>No items in the cart</div>
+              <div>{t(`nav.noItems`)}</div>
             )}
           </section>
 

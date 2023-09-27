@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -10,6 +11,10 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+body[lang="ar"] {
+  font-family: "Noto Sans Arabic", sans-serif;
 }
 
 @layer components {
@@ -24,6 +29,10 @@
 
   .rightsidebar {
     @apply absolute right-0 top-0 z-20 flex h-fit flex-col justify-between overflow-visible px-5 py-5;
+  }
+
+  .leftsidebar {
+    @apply absolute left-0 top-0 z-20 flex h-fit flex-col justify-between overflow-visible px-5 py-5;
   }
 }
 
